@@ -1,23 +1,23 @@
-package com.biz.hello.exec;
+package com.biz.hello;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.biz.hello.config.DBConnection;
-import com.biz.hello.dao.ScoreDao;
-import com.biz.hello.persistence.ScoreDTO;
+import com.biz.hello.dao.BookDao;
+import com.biz.hello.persistence.BookDTO;
 
-public class ScoreEx_01 {
+public class BookEx_01 {
 
 	public static void main(String[] args) {
 
 		SqlSession sqlSession = DBConnection.getSqlSessionFactory().openSession(true);
 		
-		ScoreDao scoreDao = sqlSession.getMapper(ScoreDao.class);
-		List<ScoreDTO> scoreList = scoreDao.selectAll();
+		BookDao bookDao = sqlSession.getMapper(BookDao.class);
+		List<BookDTO> bookList = bookDao.selectAll();
 		
-		for(ScoreDTO dto : scoreList) {
+		for(BookDTO dto : bookList) {
 			System.out.println(dto.toString());
 		}
 	}
